@@ -1,11 +1,11 @@
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
-from decouple import config
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+SECRET_KEY = os.environ.get('SECRET_KEY', 'emjotd-uh2z-4-u_g-portfolio-secret-key-2026')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '172.20.10.4', '10.5.0.2', 'hichamghassoul.pythonanywhere.com']
 
