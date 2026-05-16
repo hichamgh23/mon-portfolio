@@ -23,17 +23,23 @@ class Project(models.Model):
     defi_technique = models.TextField(
         verbose_name="Défi technique"
     )
-    usage_ia = models.TextField(
-        verbose_name="Usage de l'IA",
-        blank=True
-    )
     image = models.ImageField(
         upload_to='projets/',
         verbose_name="Image du projet"
     )
+    video = models.FileField(
+        upload_to='projets/videos/',
+        blank=True,
+        null=True,
+        verbose_name="Vidéo de démonstration"
+    )
     lien_github = models.URLField(
         blank=True,
         verbose_name="Lien GitHub"
+    )
+    lien_demo = models.URLField(
+        blank=True,
+        verbose_name="Lien démo (laisser vide si non déployé)"
     )
     date = models.DateField(
         verbose_name="Date de réalisation"

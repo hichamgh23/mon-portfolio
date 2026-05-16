@@ -1,0 +1,33 @@
+<!-- Bannière cookies -->
+<div id="cookieBanner" class="cookie-banner" style="display:none;">
+    <div class="cookie-banner-inner">
+        <div class="cookie-banner-text">
+            <i class="bi bi-shield-lock-fill cookie-banner-icon"></i>
+            <div>
+                <strong>Ce site utilise des cookies</strong>
+                <p>Des cookies techniques sont utilisés pour assurer le bon fonctionnement du site (session, sécurité CSRF). Aucun cookie publicitaire ou de tracking n'est utilisé.</p>
+            </div>
+        </div>
+        <div class="cookie-banner-actions">
+            <a href="{% url 'cookies' %}" class="cookie-btn-policy">En savoir plus</a>
+            <button onclick="acceptCookies()" class="cookie-btn-accept">
+                <i class="bi bi-check-lg me-1"></i>Accepter
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function acceptCookies() {
+        localStorage.setItem('cookies_accepted', 'true');
+        document.getElementById('cookieBanner').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        if (!localStorage.getItem('cookies_accepted')) {
+            setTimeout(function () {
+                document.getElementById('cookieBanner').style.display = 'flex';
+            }, 800);
+        }
+    });
+</script>

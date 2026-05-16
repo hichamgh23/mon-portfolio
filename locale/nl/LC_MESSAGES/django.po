@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Compétences"
+msgstr "Vaardigheden"
+
+msgid "Projets"
+msgstr "Projecten"
+
+msgid "Formation"
+msgstr "Opleiding"
+
+msgid "À propos"
+msgstr "Over mij"
+
+msgid "Mes projets"
+msgstr "Mijn projecten"
+
+msgid "Parcours & Formation"
+msgstr "Parcours & Opleiding"
+
+msgid "Mon chemin en informatique — académique et auto-didacte"
+msgstr "Mijn weg in IT — academisch en zelfgeleerd"
+
+msgid "Formation Académique"
+msgstr "Academische Opleiding"
+
+msgid "Auto-formation & Pratique"
+msgstr "Zelfstudie & Praktijk"
+
+msgid "YouTube · Documentation · Projets personnels"
+msgstr "YouTube · Documentatie · Persoonlijke projecten"
+
+msgid "En parallèle de ma formation, j'ai appris par moi-même les technologies que j'utilise activement aujourd'hui, à travers des cours en ligne et des projets concrets."
+msgstr "Naast mijn opleiding heb ik zelfstandig de technologieën geleerd die ik vandaag actief gebruik, via online cursussen en concrete projecten."
+
+msgid "Compétences"
+msgstr "Vaardigheden"
+
+msgid "Mes technologies et outils"
+msgstr "Mijn technologieën en tools"
+
+msgid "Ce que j'ai construit — code source disponible sur GitHub"
+msgstr "Wat ik heb gebouwd — broncode beschikbaar op GitHub"
+
+msgid "Projets à venir — en cours de développement."
+msgstr "Projecten komen eraan — momenteel in ontwikkeling."
+
+msgid "Voir en ligne"
+msgstr "Bekijk online"
+
+msgid "Non déployé en ligne"
+msgstr "Niet online gedeployd"
+
+msgid "Code source"
+msgstr "Broncode"
+
+msgid "Privé"
+msgstr "Privé"
+
+msgid "Me contacter"
+msgstr "Neem contact op"
+
+msgid "Une opportunité, un projet, une question — écrivez-moi."
+msgstr "Een kans, een project, een vraag — schrijf me."
+
+msgid "Restons en contact"
+msgstr "Laten we in contact blijven"
+
+msgid "Disponible pour des opportunités en développement web, mobile ou des collaborations techniques. Réponse sous 24h."
+msgstr "Beschikbaar voor kansen in web- of mobiele ontwikkeling of technische samenwerkingen. Antwoord binnen 24u."
+
+msgid "Envoyez-moi un message"
+msgstr "Stuur mij een bericht"
+
+msgid "Je vous réponds en moins de 24h."
+msgstr "Ik antwoord binnen 24u."
+
+msgid "Prénom"
+msgstr "Voornaam"
+
+msgid "Nom"
+msgstr "Naam"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Objet"
+msgstr "Onderwerp"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Envoyer le message"
+msgstr "Bericht versturen"
+
+msgid "Votre prénom"
+msgstr "Uw voornaam"
+
+msgid "Votre nom"
+msgstr "Uw naam"
+
+msgid "Votre message a bien été envoyé. Je vous répondrai rapidement !"
+msgstr "Uw bericht is succesvol verzonden. Ik antwoord zo snel mogelijk!"
+
+msgid "Veuillez remplir tous les champs obligatoires."
+msgstr "Vul alle verplichte velden in."
+
+msgid "Message envoyé !"
+msgstr "Bericht verzonden!"
+
+msgid "Merci de m'avoir contacté."
+msgstr "Bedankt voor uw bericht."
+
+msgid "Je vous répondrai dans les plus brefs délais."
+msgstr "Ik neem zo snel mogelijk contact met u op."
+
+msgid "Retour à l'accueil"
+msgstr "Terug naar home"
+
+msgid "Tous droits réservés."
+msgstr "Alle rechten voorbehouden."
+
+msgid "À propos de moi"
+msgstr "Over mij"
+
+msgid "Téléphone"
+msgstr "Telefoon"
+
+msgid "Mon profil"
+msgstr "Mijn profiel"
+
+msgid "Voir mes projets"
+msgstr "Bekijk mijn projecten"

@@ -1,0 +1,28 @@
+{% load i18n %}
+<section class="section" id="competences">
+    <div class="container">
+        <div class="section-head">
+            <h2>{% trans "Compétences" %}</h2>
+            <p>{% trans "Mes technologies et outils" %}</p>
+        </div>
+
+        {% if groupes %}
+        <div class="skills-grid">
+            {% for groupe in groupes %}
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <i class="bi bi-{{ groupe.icone }}"></i>
+                    <h6>{{ groupe.nom }}</h6>
+                </div>
+                <div class="skill-tags">
+                    {% for comp in groupe.competences.all %}
+                    <span class="skill-tag skill-tag--{{ comp.niveau }}">{{ comp.nom }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+</section>

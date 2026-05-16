@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Politique des cookies — {% if gs %}{{ gs.nom_proprietaire }}{% endif %}{% endblock %}
+
+{% block content %}
+<div style="padding-top: 100px; padding-bottom: 5rem; min-height: 100vh; background: var(--gray-bg);">
+    <div class="container" style="max-width: 800px;">
+
+        <div class="cookies-page">
+
+            <a href="{% url 'home' %}" class="cookies-back">
+                <i class="bi bi-arrow-left"></i> Retour au portfolio
+            </a>
+
+            <h1 class="cookies-title">Politique des cookies</h1>
+            <p class="cookies-updated">Dernière mise à jour : mai 2026</p>
+
+            <div class="cookies-section">
+                <h2>Qu'est-ce qu'un cookie ?</h2>
+                <p>Un cookie est un petit fichier texte déposé sur votre appareil (ordinateur, téléphone, tablette) lorsque vous visitez un site web. Il permet au site de mémoriser certaines informations sur votre visite.</p>
+            </div>
+
+            <div class="cookies-section">
+                <h2>Les cookies utilisés sur ce site</h2>
+                <p>Ce portfolio utilise uniquement des <strong>cookies techniques strictement nécessaires</strong> au fonctionnement du site. Aucun cookie publicitaire, de tracking ou d'analyse n'est utilisé.</p>
+
+                <div class="cookies-table-wrap">
+                    <table class="cookies-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Type</th>
+                                <th>Durée</th>
+                                <th>Utilité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>csrftoken</code></td>
+                                <td>Technique</td>
+                                <td>1 an</td>
+                                <td>Protection contre les attaques CSRF (sécurité des formulaires). Obligatoire au fonctionnement de Django.</td>
+                            </tr>
+                            <tr>
+                                <td><code>sessionid</code></td>
+                                <td>Technique</td>
+                                <td>Session</td>
+                                <td>Maintien de votre session lors de votre navigation sur le site.</td>
+                            </tr>
+                            <tr>
+                                <td><code>cookies_accepted</code></td>
+                                <td>Préférence</td>
+                                <td>Permanent</td>
+                                <td>Mémorise votre consentement pour ne plus afficher la bannière cookies. Stocké dans le localStorage de votre navigateur.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="cookies-section">
+                <h2>Cookies tiers</h2>
+                <p>Ce site n'installe <strong>aucun cookie tiers</strong> (Google Analytics, Facebook Pixel, etc.). Certaines ressources externes sont chargées (polices Google Fonts, Bootstrap CDN) mais elles ne déposent pas de cookies de tracking.</p>
+            </div>
+
+            <div class="cookies-section">
+                <h2>Gérer vos préférences</h2>
+                <p>Vous pouvez à tout moment supprimer les cookies déposés via les paramètres de votre navigateur :</p>
+                <ul class="cookies-list">
+                    <li><strong>Chrome :</strong> Paramètres → Confidentialité → Cookies et autres données de site</li>
+                    <li><strong>Firefox :</strong> Paramètres → Vie privée → Cookies et données de site</li>
+                    <li><strong>Safari :</strong> Préférences → Confidentialité → Gérer les données de site web</li>
+                    <li><strong>Edge :</strong> Paramètres → Confidentialité → Cookies et autorisations de site</li>
+                </ul>
+                <p>Vous pouvez également réinitialiser votre consentement en cliquant sur le bouton ci-dessous :</p>
+                <button onclick="resetCookies()" class="cookies-reset-btn">
+                    <i class="bi bi-arrow-counterclockwise me-2"></i>Réinitialiser mon consentement
+                </button>
+            </div>
+
+            <div class="cookies-section">
+                <h2>Contact</h2>
+                <p>Pour toute question relative aux cookies ou à votre vie privée, vous pouvez me contacter via la <a href="{% url 'home' %}#contact">page de contact</a>{% if gs and gs.lien_email %} ou directement à <a href="mailto:{{ gs.lien_email }}">{{ gs.lien_email }}</a>{% endif %}.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function resetCookies() {
+        localStorage.removeItem('cookies_accepted');
+        alert('Votre consentement a été réinitialisé. La bannière réapparaîtra à votre prochaine visite.');
+    }
+</script>
+{% endblock %}

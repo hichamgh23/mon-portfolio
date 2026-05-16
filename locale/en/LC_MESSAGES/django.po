@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "Accueil"
+msgstr "Home"
+
+msgid "Compétences"
+msgstr "Skills"
+
+msgid "Projets"
+msgstr "Projects"
+
+msgid "Formation"
+msgstr "Education"
+
+msgid "À propos"
+msgstr "About"
+
+msgid "Mes projets"
+msgstr "My projects"
+
+msgid "Parcours & Formation"
+msgstr "Background & Education"
+
+msgid "Mon chemin en informatique — académique et auto-didacte"
+msgstr "My path in IT — academic and self-taught"
+
+msgid "Formation Académique"
+msgstr "Academic Education"
+
+msgid "Auto-formation & Pratique"
+msgstr "Self-learning & Practice"
+
+msgid "YouTube · Documentation · Projets personnels"
+msgstr "YouTube · Documentation · Personal projects"
+
+msgid "En parallèle de ma formation, j'ai appris par moi-même les technologies que j'utilise activement aujourd'hui, à travers des cours en ligne et des projets concrets."
+msgstr "Alongside my studies, I taught myself the technologies I actively use today, through online courses and hands-on projects."
+
+msgid "Compétences"
+msgstr "Skills"
+
+msgid "Mes technologies et outils"
+msgstr "My technologies and tools"
+
+msgid "Ce que j'ai construit — code source disponible sur GitHub"
+msgstr "What I've built — source code available on GitHub"
+
+msgid "Projets à venir — en cours de développement."
+msgstr "Projects coming soon — currently in development."
+
+msgid "Voir en ligne"
+msgstr "View live"
+
+msgid "Non déployé en ligne"
+msgstr "Not deployed online"
+
+msgid "Code source"
+msgstr "Source code"
+
+msgid "Privé"
+msgstr "Private"
+
+msgid "Me contacter"
+msgstr "Contact me"
+
+msgid "Une opportunité, un projet, une question — écrivez-moi."
+msgstr "An opportunity, a project, a question — write to me."
+
+msgid "Restons en contact"
+msgstr "Let's stay in touch"
+
+msgid "Disponible pour des opportunités en développement web, mobile ou des collaborations techniques. Réponse sous 24h."
+msgstr "Available for web, mobile development opportunities or technical collaborations. Reply within 24h."
+
+msgid "Envoyez-moi un message"
+msgstr "Send me a message"
+
+msgid "Je vous réponds en moins de 24h."
+msgstr "I'll reply within 24h."
+
+msgid "Prénom"
+msgstr "First name"
+
+msgid "Nom"
+msgstr "Last name"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Objet"
+msgstr "Subject"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Envoyer le message"
+msgstr "Send message"
+
+msgid "Votre prénom"
+msgstr "Your first name"
+
+msgid "Votre nom"
+msgstr "Your last name"
+
+msgid "Votre message a bien été envoyé. Je vous répondrai rapidement !"
+msgstr "Your message has been sent successfully. I'll reply shortly!"
+
+msgid "Veuillez remplir tous les champs obligatoires."
+msgstr "Please fill in all required fields."
+
+msgid "Message envoyé !"
+msgstr "Message sent!"
+
+msgid "Merci de m'avoir contacté."
+msgstr "Thank you for reaching out."
+
+msgid "Je vous répondrai dans les plus brefs délais."
+msgstr "I'll get back to you as soon as possible."
+
+msgid "Retour à l'accueil"
+msgstr "Back to home"
+
+msgid "Tous droits réservés."
+msgstr "All rights reserved."
+
+msgid "À propos de moi"
+msgstr "About me"
+
+msgid "Téléphone"
+msgstr "Phone"
+
+msgid "Mon profil"
+msgstr "My profile"
+
+msgid "Voir mes projets"
+msgstr "View my projects"

@@ -1,0 +1,50 @@
+{% load i18n %}
+<section class="hero" id="accueil">
+    <div class="hero-blob"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center hero-row gy-3">
+
+            <div class="col-12 col-lg-5 text-center order-lg-2">
+                <div class="hero-photo-wrap mx-auto">
+                    {% if gs and gs.photo_profil %}
+                    <img src="{{ gs.photo_profil.url }}" alt="{{ gs.nom_proprietaire }}" class="hero-photo">
+                    {% else %}
+                    <div class="hero-photo-empty"><i class="bi bi-person-fill"></i></div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-7 order-lg-1 text-center text-lg-start">
+                <h1 class="hero-name">
+                    {% if gs %}{{ gs.nom_proprietaire }}{% else %}Votre Nom{% endif %}
+                </h1>
+                <h2 class="hero-title">
+                    {% if gs %}{{ gs.titre_poste }}{% else %}Développeur Full Stack{% endif %}
+                </h2>
+                <p class="hero-sub">
+                    {% if gs and gs.hero_sous_titre %}{{ gs.hero_sous_titre }}{% else %}Développeur web et mobile, spécialisé en Django et React Native.{% endif %}
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projets" class="btn-primary-hero">
+                        <i class="bi bi-grid me-2"></i>{% trans "Mes projets" %}
+                    </a>
+                    {% if gs and gs.lien_github %}
+                    <a href="{{ gs.lien_github }}" target="_blank" rel="noopener" class="btn-ghost-hero">
+                        <i class="bi bi-github me-2"></i>GitHub
+                    </a>
+                    {% endif %}
+                </div>
+
+                {% if gs %}
+                <div class="hero-socials justify-content-center justify-content-lg-start">
+                    {% if gs.lien_linkedin %}<a href="{{ gs.lien_linkedin }}" target="_blank" rel="noopener" title="LinkedIn"><i class="bi bi-linkedin"></i></a>{% endif %}
+                    {% if gs.lien_email %}<a href="mailto:{{ gs.lien_email }}" title="Email"><i class="bi bi-envelope-fill"></i></a>{% endif %}
+                    {% if gs.lien_github %}<a href="{{ gs.lien_github }}" target="_blank" rel="noopener" title="GitHub"><i class="bi bi-github"></i></a>{% endif %}
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>

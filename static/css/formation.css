@@ -1,0 +1,200 @@
+/* ══════════════════════════════════════════════
+   FORMATION
+══════════════════════════════════════════════ */
+.formation-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--gray-line);
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    height: 100%;
+}
+
+.formation-card--self {
+    border-color: #bfdbfe;
+    background: linear-gradient(160deg, #ffffff 55%, #eff6ff 85%, #e0f2fe);
+}
+
+/* Header */
+.formation-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--gray-line);
+}
+
+.formation-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.formation-card-icon i {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.formation-card-icon--self {
+    background: linear-gradient(135deg, #6366f1, #38bdf8);
+}
+
+.formation-card-header h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin: 0 0 .2rem;
+}
+
+.formation-card-header span {
+    font-size: .82rem;
+    color: var(--gray);
+}
+
+.formation-card-desc {
+    font-size: .9rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 1.3rem;
+}
+
+/* Modules académiques */
+.modules-grid {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+}
+
+.module-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .65rem;
+    font-size: .88rem;
+    color: var(--dark);
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: .55rem .75rem;
+}
+
+.module-item i {
+    color: var(--blue);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: .05rem;
+}
+
+/* ══ TIMELINE AUTO-FORMATION ══ */
+.timeline-self {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 1.6rem;
+}
+
+.timeline-self::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blue), #e0f2fe);
+    border-radius: 2px;
+}
+
+.timeline-self-item {
+    display: flex;
+    gap: .9rem;
+    padding-bottom: 1.4rem;
+    position: relative;
+}
+
+.timeline-self-item:last-child { padding-bottom: 0; }
+
+.ts-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--blue-mid);
+    flex-shrink: 0;
+    margin-top: 5px;
+    position: absolute;
+    left: -1.6rem;
+}
+
+.ts-dot--active {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37,99,235,.2);
+}
+
+.ts-body { flex: 1; }
+
+.ts-label {
+    font-size: .73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    color: var(--blue);
+    display: inline-block;
+    background: #eff6ff;
+    border-radius: 6px;
+    padding: .1rem .5rem;
+    margin-bottom: .3rem;
+}
+
+.ts-dot--active + .ts-body .ts-label {
+    color: #16a34a;
+    background: #f0fdf4;
+}
+
+.ts-body strong {
+    display: block;
+    font-size: .92rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin-bottom: .3rem;
+}
+
+.ts-body p {
+    font-size: .84rem;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: .5rem;
+}
+
+.ts-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+}
+
+.ts-tags span {
+    font-size: .74rem;
+    font-weight: 600;
+    background: var(--blue-light);
+    color: var(--blue);
+    padding: .2rem .6rem;
+    border-radius: 6px;
+}
+
+/* ══ MOBILE ══ */
+@media (max-width: 767px) {
+    .formation-card { padding: 1.25rem; }
+    .formation-card-icon { width: 40px; height: 40px; border-radius: 12px; }
+    .formation-card-icon i { font-size: 1.1rem; }
+    .formation-card-header h5 { font-size: .92rem; }
+    .formation-card-header span { font-size: .78rem; }
+    .formation-card-desc { font-size: .85rem; margin-bottom: 1rem; }
+    .module-item { font-size: .83rem; padding: .45rem .65rem; }
+    .ts-body strong { font-size: .87rem; }
+    .ts-body p { font-size: .8rem; }
+}

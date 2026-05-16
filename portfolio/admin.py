@@ -9,9 +9,9 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ('titre',)
     fieldsets = (
         ("Informations générales", {
-            "fields": ("titre", "categorie", "date", "image", "lien_github")
+            "fields": ("titre", "categorie", "date", "image", "video", "lien_github", "lien_demo")
         }),
         ("Contenu", {
-            "fields": ("description", "defi_technique", "usage_ia")
+            "fields": ("description", "defi_technique")
         }),
     )

@@ -1,0 +1,65 @@
+/* ══════════════════════════════════════════════
+   COMPÉTENCES
+══════════════════════════════════════════════ */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-group {
+    background: var(--gray-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--gray-line);
+}
+
+.skill-group-header {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    margin-bottom: 1rem;
+}
+
+.skill-group-header i {
+    font-size: 1.1rem;
+    color: var(--blue);
+}
+
+.skill-group-header h6 {
+    font-size: .88rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+    margin: 0;
+    letter-spacing: .2px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.skill-tag {
+    font-size: .78rem;
+    font-weight: 500;
+    padding: .28rem .7rem;
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--gray-line);
+}
+
+.skill-tag--strong {
+    background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+    color: var(--blue);
+    border-color: #bfdbfe;
+    font-weight: 700;
+}
+
+.skill-tag--learning {
+    background: #fff8e1;
+    color: #f57f17;
+    border-color: #ffecb3;
+    border-style: dashed;
+}

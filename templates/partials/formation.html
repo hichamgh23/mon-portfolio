@@ -1,0 +1,75 @@
+{% load i18n %}
+<section class="section section--gray" id="formation">
+    <div class="container">
+        <div class="section-head">
+            <h2>{% trans "Parcours & Formation" %}</h2>
+            <p>{% trans "Mon chemin en informatique — académique et auto-didacte" %}</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-12 col-lg-6">
+                <div class="formation-card">
+                    <div class="formation-card-header">
+                        <div class="formation-card-icon">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <div>
+                            <h5>{% trans "Formation Académique" %}</h5>
+                            <span>{% if gs %}{{ gs.formation_sous_titre }}{% endif %}</span>
+                        </div>
+                    </div>
+                    {% if gs and gs.formation_description %}
+                    <p class="formation-card-desc">{{ gs.formation_description }}</p>
+                    {% endif %}
+                    <div class="modules-grid">
+                        {% for module in modules %}
+                        <div class="module-item">
+                            <i class="bi bi-check2-circle"></i>
+                            <span>{{ module.texte }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="formation-card formation-card--self">
+                    <div class="formation-card-header">
+                        <div class="formation-card-icon formation-card-icon--self">
+                            <i class="bi bi-laptop-fill"></i>
+                        </div>
+                        <div>
+                            <h5>{% trans "Auto-formation & Pratique" %}</h5>
+                            <span>{% trans "YouTube · Documentation · Projets personnels" %}</span>
+                        </div>
+                    </div>
+                    <p class="formation-card-desc">
+                        {% trans "En parallèle de ma formation, j'ai appris par moi-même les technologies que j'utilise activement aujourd'hui, à travers des cours en ligne et des projets concrets." %}
+                    </p>
+
+                    <div class="timeline-self">
+                        {% for item in auto_formations %}
+                        <div class="timeline-self-item">
+                            <div class="ts-dot {% if item.statut != 'acquis' %}ts-dot--active{% endif %}"></div>
+                            <div class="ts-body">
+                                <span class="ts-label">{{ item.get_statut_display }}</span>
+                                <strong>{{ item.titre }}</strong>
+                                <p>{{ item.description }}</p>
+                                {% if item.tags %}
+                                <div class="ts-tags">
+                                    {% for tag in item.get_tags_list %}
+                                    <span>{{ tag }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

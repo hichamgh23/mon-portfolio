@@ -1,0 +1,42 @@
+{% load i18n %}
+<section class="section section--gray" id="apropos">
+    <div class="container">
+        <div class="row align-items-center gy-5">
+
+            <div class="col-lg-5 text-center">
+                {% if gs and gs.photo_profil %}
+                <img src="{{ gs.photo_profil.url }}" alt="{{ gs.nom_proprietaire }}" class="about-photo">
+                {% else %}
+                <div class="about-photo-empty"><i class="bi bi-person-fill"></i></div>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-7">
+                <h2 class="about-title">{% trans "À propos de moi" %}</h2>
+                <p class="about-bio">{% if gs %}{{ gs.bio }}{% endif %}</p>
+
+                {% if gs %}
+                <div class="about-meta">
+                    <div class="about-meta-item">
+                        <i class="bi bi-person-badge"></i>
+                        <span>{{ gs.titre_poste }}</span>
+                    </div>
+                    {% if gs.lien_email %}
+                    <div class="about-meta-item">
+                        <i class="bi bi-envelope"></i>
+                        <a href="mailto:{{ gs.lien_email }}">{{ gs.lien_email }}</a>
+                    </div>
+                    {% endif %}
+                    {% if gs.lien_github %}
+                    <div class="about-meta-item">
+                        <i class="bi bi-github"></i>
+                        <a href="{{ gs.lien_github }}" target="_blank" rel="noopener">{{ gs.lien_github }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
