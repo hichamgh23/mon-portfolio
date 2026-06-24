@@ -1,169 +1,109 @@
 /* ══════════════════════════════════════════════
    PROJETS
 ══════════════════════════════════════════════ */
-.pcard {
-    background: var(--white);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--gray-line);
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
-    transition: transform .3s, box-shadow .3s;
-    height: 100%;
+.projects-list {
     display: flex;
     flex-direction: column;
+    gap: 1.5rem;
 }
 
-.pcard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(37,99,235,.15);
+.project-row {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    background: var(--surface);
+    transition: border-color .2s;
 }
 
-.pcard-img {
+.project-row:hover { border-color: rgba(198,241,53,.4); }
+
+.project-row--reverse { grid-template-columns: 1fr 1.1fr; }
+.project-row--reverse .project-thumb { order: 2; }
+
+.project-thumb {
     position: relative;
-    height: 195px;
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
     overflow: hidden;
-    background: var(--blue-light);
-}
-
-.pcard-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform .4s;
-}
-
-.pcard:hover .pcard-img img { transform: scale(1.05); }
-
-.pcard-img-empty {
-    width: 100%; height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: var(--blue-mid);
+    align-items: flex-end;
+    padding: 1rem;
 }
 
-.pcard-badge {
+.project-thumb img, .project-thumb video {
     position: absolute;
-    top: .8rem; left: .8rem;
-    background: linear-gradient(135deg, var(--blue), var(--indigo));
-    color: #fff;
-    font-size: .7rem;
-    font-weight: 700;
-    padding: .2rem .65rem;
-    border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(37,99,235,.35);
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.pcard-body {
-    padding: 1.3rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+.project-thumb span {
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem;
+    color: var(--text-faint);
 }
 
-.pcard-body h5 {
-    font-size: .98rem;
-    font-weight: 700;
-    color: var(--blue-dark);
-    margin-bottom: .5rem;
-}
-
-.pcard-desc {
-    font-size: .85rem;
-    color: var(--gray);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: .9rem;
-}
-
-.pcard-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-}
-
-.pcard-github {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--dark);
-    padding: .35rem .85rem;
-    border-radius: 8px;
-    border: 1px solid var(--gray-line);
-    text-decoration: none;
-    transition: background .2s, border-color .2s, color .2s;
-}
-
-.pcard-github:hover {
-    background: var(--blue-light);
-    border-color: var(--blue-mid);
-    color: var(--blue);
-}
-
-.pcard-date {
+.project-meta {
+    font-family: 'JetBrains Mono', monospace;
     font-size: .78rem;
-    color: var(--gray);
-    font-weight: 500;
+    color: var(--text-dim2);
 }
 
-.pcard-status {
-    margin-bottom: .7rem;
-}
-
-.pcard-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    font-size: .74rem;
+.project-body h3 {
+    font-size: 1.6rem;
     font-weight: 600;
-    padding: .28rem .75rem;
-    border-radius: 6px;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin: .7rem 0;
+}
+
+.project-desc {
+    font-size: .92rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 1.2rem;
+}
+
+.project-links {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .75rem;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: .35rem .8rem;
+    border-radius: 999px;
     text-decoration: none;
+    transition: border-color .2s, color .2s;
 }
 
-.pcard-status-badge--live {
-    background: #ecfdf5;
-    color: #059669;
-    border: 1px solid #a7f3d0;
-    transition: background .2s;
-}
-
-.pcard-status-badge--live:hover {
-    background: #d1fae5;
-    color: #059669;
-}
-
-.pcard-status-badge--local {
-    background: #fafafa;
-    color: #94a3b8;
-    border: 1px dashed #cbd5e1;
-}
-
-.pcard-github--private {
-    cursor: default;
-    opacity: .55;
-    border-style: dashed;
-}
-
-/* ══ MOBILE ══ */
-@media (max-width: 767px) {
-    .pcard-img { height: 120px; }
-    .pcard-body { padding: .75rem; }
-    .pcard-body h5 { font-size: .8rem; }
-    .pcard-desc { font-size: .74rem; line-height: 1.5; }
-    .pcard-badge { font-size: .62rem; padding: .15rem .5rem; }
-    .pcard-github, .pcard-github--private { font-size: .72rem; padding: .25rem .55rem; }
-    .pcard-date { font-size: .7rem; }
-    .pcard-status-badge { font-size: .68rem; padding: .2rem .55rem; }
-}
+.project-link:hover { border-color: var(--accent); color: var(--accent); }
+.project-link--muted { opacity: .55; cursor: default; }
 
 .empty-state {
     text-align: center;
     padding: 4rem 0;
-    color: var(--gray);
+    color: var(--text-dim);
 }
 
-.empty-state i { font-size: 3rem; display: block; margin-bottom: 1rem; }
+/* ══ MOBILE ══ */
+@media (max-width: 767px) {
+    .project-row, .project-row--reverse {
+        grid-template-columns: 1fr;
+        padding: 1.25rem;
+    }
+    .project-row--reverse .project-thumb { order: 0; }
+    .project-body h3 { font-size: 1.3rem; }
+}

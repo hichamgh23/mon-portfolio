@@ -1,56 +1,41 @@
 {% load i18n %}
-<section class="section section--gray" id="projets">
+<section class="section" id="projets">
     <div class="container">
         <div class="section-head">
-            <h2>{% trans "Projets" %}</h2>
-            <p>{% trans "Ce que j'ai construit — code source disponible sur GitHub" %}</p>
+            <span class="section-num">03 — {% trans "PROJETS" %}</span>
+            <h2>{% trans "Travaux sélectionnés" %}</h2>
         </div>
 
         {% if projets %}
-        <div class="row g-4">
+        <div class="projects-list">
             {% for projet in projets %}
-            <div class="col-6 col-md-6 col-lg-4">
-                <div class="pcard">
-                    <div class="pcard-img">
-                        {% if projet.video %}
-                        <video controls preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;">
-                            <source src="{{ projet.video.url }}">
-                        </video>
-                        {% elif projet.image %}
-                        <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
+            <div class="project-row {% if forloop.counter|divisibleby:2 %}project-row--reverse{% endif %}">
+                <div class="project-thumb">
+                    {% if projet.video %}
+                    <video controls preload="metadata">
+                        <source src="{{ projet.video.url }}">
+                    </video>
+                    {% elif projet.image %}
+                    <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
+                    {% else %}
+                    <span>[ {% trans "capture projet" %} ]</span>
+                    {% endif %}
+                </div>
+                <div class="project-body">
+                    <div class="project-meta">{{ projet.get_categorie_display }} · {{ projet.date|date:"Y" }}</div>
+                    <h3>{{ projet.titre }}</h3>
+                    <p class="project-desc">{{ projet.defi_technique|truncatechars:140 }}</p>
+                    <div class="project-links">
+                        {% if projet.lien_demo %}
+                        <a href="{{ projet.lien_demo }}" target="_blank" rel="noopener" class="project-link">{% trans "Voir en ligne" %} ↗</a>
                         {% else %}
-                        <div class="pcard-img-empty"><i class="bi bi-code-square"></i></div>
+                        <span class="project-link project-link--muted">{% trans "Non déployé" %}</span>
                         {% endif %}
-                        <span class="pcard-badge">{{ projet.get_categorie_display }}</span>
-                    </div>
-                    <div class="pcard-body">
-                        <h5>{{ projet.titre }}</h5>
-                        <p class="pcard-desc">{{ projet.defi_technique|truncatechars:110 }}</p>
-
-                        <div class="pcard-status">
-                            {% if projet.lien_demo %}
-                            <a href="{{ projet.lien_demo }}" target="_blank" rel="noopener" class="pcard-status-badge pcard-status-badge--live">
-                                <i class="bi bi-globe2"></i> {% trans "Voir en ligne" %}
-                            </a>
-                            {% else %}
-                            <span class="pcard-status-badge pcard-status-badge--local">
-                                <i class="bi bi-laptop"></i> {% trans "Non déployé en ligne" %}
-                            </span>
-                            {% endif %}
-                        </div>
-
-                        <div class="pcard-links">
-                            {% if projet.lien_github %}
-                            <a href="{{ projet.lien_github }}" target="_blank" rel="noopener" class="pcard-github">
-                                <i class="bi bi-github"></i> {% trans "Code source" %}
-                            </a>
-                            {% else %}
-                            <span class="pcard-github pcard-github--private">
-                                <i class="bi bi-lock"></i> {% trans "Privé" %}
-                            </span>
-                            {% endif %}
-                            <span class="pcard-date">{{ projet.date|date:"Y" }}</span>
-                        </div>
+                        {% if projet.lien_github %}
+                        <a href="{{ projet.lien_github }}" target="_blank" rel="noopener" class="project-link">{% trans "Code source" %} ↗</a>
+                        {% else %}
+                        <span class="project-link project-link--muted">{% trans "Privé" %}</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -58,8 +43,7 @@
         </div>
         {% else %}
         <div class="empty-state">
-            <i class="bi bi-folder2-open"></i>
-            <p>{% trans "Projets à venir — en cours de développement." %}</p>
+            <p>{% trans "Bientôt disponible." %}</p>
         </div>
         {% endif %}
     </div>

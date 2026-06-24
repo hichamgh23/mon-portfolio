@@ -1,0 +1,27 @@
+/* ══════════════════════════════════════════════
+   MARQUEE (bandeau technos défilant)
+══════════════════════════════════════════════ */
+.marquee {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee-track {
+    display: inline-flex;
+    gap: 48px;
+    animation: marqueeScroll 24s linear infinite;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    color: var(--text-faint);
+    letter-spacing: .04em;
+}
+
+.marquee-sep { color: var(--accent); }
+
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}

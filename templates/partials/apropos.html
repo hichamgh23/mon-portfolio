@@ -1,42 +1,39 @@
 {% load i18n %}
-<section class="section section--gray" id="apropos">
-    <div class="container">
-        <div class="row align-items-center gy-5">
+<section class="section" id="apropos">
+    <div class="container apropos-grid">
 
-            <div class="col-lg-5 text-center">
+        <div class="apropos-col-photo">
+            <span class="section-num">01 — {% trans "À PROPOS" %}</span>
+            <div class="apropos-photo">
                 {% if gs and gs.photo_profil %}
-                <img src="{{ gs.photo_profil.url }}" alt="{{ gs.nom_proprietaire }}" class="about-photo">
+                <img src="{{ gs.photo_profil.url }}" alt="{{ gs.nom_proprietaire }}">
                 {% else %}
-                <div class="about-photo-empty"><i class="bi bi-person-fill"></i></div>
+                <span>[ {% trans "photo de profil" %} ]</span>
                 {% endif %}
             </div>
-
-            <div class="col-lg-7">
-                <h2 class="about-title">{% trans "À propos de moi" %}</h2>
-                <p class="about-bio">{% if gs %}{{ gs.bio }}{% endif %}</p>
-
-                {% if gs %}
-                <div class="about-meta">
-                    <div class="about-meta-item">
-                        <i class="bi bi-person-badge"></i>
-                        <span>{{ gs.titre_poste }}</span>
-                    </div>
-                    {% if gs.lien_email %}
-                    <div class="about-meta-item">
-                        <i class="bi bi-envelope"></i>
-                        <a href="mailto:{{ gs.lien_email }}">{{ gs.lien_email }}</a>
-                    </div>
-                    {% endif %}
-                    {% if gs.lien_github %}
-                    <div class="about-meta-item">
-                        <i class="bi bi-github"></i>
-                        <a href="{{ gs.lien_github }}" target="_blank" rel="noopener">{{ gs.lien_github }}</a>
-                    </div>
-                    {% endif %}
-                </div>
-                {% endif %}
-            </div>
-
         </div>
+
+        <div class="apropos-col-text">
+            <h2>{% trans "Je transforme des idées en produits numériques performants." %}</h2>
+            <p class="apropos-bio">
+                {% blocktrans %}Je développe des applications <strong class="apropos-strong">web, mobile et logicielles</strong>. Je travaille avec Django et JavaScript, mais je me spécialise sur <strong class="apropos-strong apropos-strong--accent">.NET</strong> — c'est le stack que j'approfondis pour le long terme, du back-end à l'applicatif multiplateforme.{% endblocktrans %}
+            </p>
+
+            <div class="apropos-stats">
+                <div class="apropos-stat">
+                    <div class="apropos-stat-title">{% trans "Code propre" %}</div>
+                    <div class="apropos-stat-label">{% trans "Architecture claire et maintenable" %}</div>
+                </div>
+                <div class="apropos-stat">
+                    <div class="apropos-stat-title">{% trans "Interfaces soignées" %}</div>
+                    <div class="apropos-stat-label">{% trans "Pensées pour l'utilisateur final" %}</div>
+                </div>
+                <div class="apropos-stat">
+                    <div class="apropos-stat-title">{% trans "Performance" %}</div>
+                    <div class="apropos-stat-label">{% trans "Du back-end .NET au front" %}</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>

@@ -2,27 +2,47 @@
 <section class="section" id="competences">
     <div class="container">
         <div class="section-head">
-            <h2>{% trans "Compétences" %}</h2>
-            <p>{% trans "Mes technologies et outils" %}</p>
+            <span class="section-num">02 — {% trans "COMPÉTENCES" %}</span>
+            <h2>{% trans "Stack technique" %}</h2>
         </div>
 
-        {% if groupes %}
         <div class="skills-grid">
-            {% for groupe in groupes %}
-            <div class="skill-group">
-                <div class="skill-group-header">
-                    <i class="bi bi-{{ groupe.icone }}"></i>
-                    <h6>{{ groupe.nom }}</h6>
-                </div>
-                <div class="skill-tags">
-                    {% for comp in groupe.competences.all %}
-                    <span class="skill-tag skill-tag--{{ comp.niveau }}">{{ comp.nom }}</span>
-                    {% endfor %}
+
+            <div class="skill-card skill-card--main">
+                <span class="skill-card-badge">{% trans "stack principal" %}</span>
+                <div class="skill-card-icon">{ .net }</div>
+                <h3>{% trans "Écosystème .NET" %}</h3>
+                <p class="skill-card-desc">{% trans "Mon stack de cœur — web, mobile & logiciel. Celui que j'approfondis sur le long terme." %}</p>
+                <div class="skill-list">
+                    <span>C# &amp; .NET</span>
+                    <span>ASP.NET Core</span>
+                    <span>.NET MAUI (mobile)</span>
+                    <span>Blazor &amp; WPF</span>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-        {% endif %}
 
+            <div class="skill-card">
+                <div class="skill-card-icon">{ web }</div>
+                <h3>{% trans "Web & Back-end" %}</h3>
+                <div class="skill-list">
+                    <span>Django (Python)</span>
+                    <span>JavaScript &amp; React</span>
+                    <span>REST &amp; API</span>
+                    <span>PostgreSQL / SQL Server</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-icon">{ outils }</div>
+                <h3>{% trans "Outils & Cloud" %}</h3>
+                <div class="skill-list">
+                    <span>Git &amp; CI/CD</span>
+                    <span>Docker</span>
+                    <span>Azure</span>
+                    <span>Linux</span>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>

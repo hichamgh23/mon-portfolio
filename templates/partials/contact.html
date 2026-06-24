@@ -1,158 +1,19 @@
 {% load i18n %}
-<section class="section" id="contact">
+<section class="section contact-section" id="contact">
     <div class="container">
-        <div class="section-head">
-            <h2>{% trans "Me contacter" %}</h2>
-            <p>{% trans "Une opportunité, un projet, une question — écrivez-moi." %}</p>
-        </div>
+        <span class="section-num">04 — {% trans "CONTACT" %}</span>
+        <h2 class="contact-title">{% trans "Travaillons" %}<br>{% trans "ensemble" %}<span class="hero-dot">.</span></h2>
 
-        {% if messages %}
-        {% for message in messages %}
-        <div class="contact-alert contact-alert--{{ message.tags }}">
-            {% if message.tags == 'success' %}
-            <i class="bi bi-check-circle-fill"></i>
-            {% else %}
-            <i class="bi bi-exclamation-circle-fill"></i>
-            {% endif %}
-            {{ message }}
-        </div>
-        {% endfor %}
+        {% if gs and gs.lien_email %}
+        <a href="mailto:{{ gs.lien_email }}" class="contact-mailto">{{ gs.lien_email }}</a>
         {% endif %}
 
-        <div class="row g-4 align-items-start">
-
-            <div class="col-12 col-lg-4">
-                <div class="contact-info">
-                    <h5 class="contact-info-title">{% trans "Restons en contact" %}</h5>
-                    <p class="contact-info-sub">
-                        {% trans "Disponible pour des opportunités en développement web, mobile ou des collaborations techniques. Réponse sous 24h." %}
-                    </p>
-
-                    <div class="contact-info-items">
-
-                        {% if gs and gs.telephone %}
-                        <a href="tel:{{ gs.telephone }}" class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="bi bi-telephone-fill"></i>
-                            </div>
-                            <div>
-                                <span class="contact-info-label">{% trans "Téléphone" %}</span>
-                                <span class="contact-info-value">{{ gs.telephone }}</span>
-                            </div>
-                        </a>
-                        {% endif %}
-
-                        {% if gs and gs.lien_email %}
-                        <a href="mailto:{{ gs.lien_email }}" class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class="bi bi-envelope-fill"></i>
-                            </div>
-                            <div>
-                                <span class="contact-info-label">Email</span>
-                                <span class="contact-info-value">{{ gs.lien_email }}</span>
-                            </div>
-                        </a>
-                        {% endif %}
-
-                        {% if gs and gs.lien_whatsapp %}
-                        <a href="https://wa.me/{{ gs.lien_whatsapp }}" target="_blank" rel="noopener" class="contact-info-item">
-                            <div class="contact-info-icon contact-info-icon--green">
-                                <i class="bi bi-whatsapp"></i>
-                            </div>
-                            <div>
-                                <span class="contact-info-label">WhatsApp</span>
-                                <span class="contact-info-value">{{ gs.lien_whatsapp }}</span>
-                            </div>
-                        </a>
-                        {% endif %}
-
-                        {% if gs and gs.lien_linkedin %}
-                        <a href="{{ gs.lien_linkedin }}" target="_blank" rel="noopener" class="contact-info-item">
-                            <div class="contact-info-icon contact-info-icon--blue">
-                                <i class="bi bi-linkedin"></i>
-                            </div>
-                            <div>
-                                <span class="contact-info-label">LinkedIn</span>
-                                <span class="contact-info-value">{% trans "Mon profil" %}</span>
-                            </div>
-                        </a>
-                        {% endif %}
-
-                        {% if gs and gs.lien_github %}
-                        <a href="{{ gs.lien_github }}" target="_blank" rel="noopener" class="contact-info-item">
-                            <div class="contact-info-icon contact-info-icon--dark">
-                                <i class="bi bi-github"></i>
-                            </div>
-                            <div>
-                                <span class="contact-info-label">GitHub</span>
-                                <span class="contact-info-value">{% trans "Voir mes projets" %}</span>
-                            </div>
-                        </a>
-                        {% endif %}
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-8">
-                <div class="contact-card">
-                    <div class="contact-card-header">
-                        <h5>{% trans "Envoyez-moi un message" %}</h5>
-                        <p>{% trans "Je vous réponds en moins de 24h." %}</p>
-                    </div>
-                    <form method="POST" action="{% url 'contact' %}">
-                        {% csrf_token %}
-                        <div class="row g-3">
-
-                            <div class="col-sm-6">
-                                <label class="contact-label">{% trans "Prénom" %} <span class="contact-required">*</span></label>
-                                <div class="input-wrap">
-                                    <i class="bi bi-person input-icon"></i>
-                                    <input type="text" name="prenom" class="form-input form-input--icon" placeholder="{% trans 'Votre prénom' %}" required>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label class="contact-label">{% trans "Nom" %} <span class="contact-required">*</span></label>
-                                <div class="input-wrap">
-                                    <i class="bi bi-person input-icon"></i>
-                                    <input type="text" name="nom" class="form-input form-input--icon" placeholder="{% trans 'Votre nom' %}" required>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label class="contact-label">{% trans "Email" %} <span class="contact-required">*</span></label>
-                                <div class="input-wrap">
-                                    <i class="bi bi-envelope input-icon"></i>
-                                    <input type="email" name="email" class="form-input form-input--icon" placeholder="votre@email.com" required>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label class="contact-label">{% trans "Objet" %} <span class="contact-required">*</span></label>
-                                <div class="input-wrap">
-                                    <i class="bi bi-chat-left-text input-icon"></i>
-                                    <input type="text" name="objet" class="form-input form-input--icon" placeholder="{% trans 'Objet' %}" required>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label class="contact-label">{% trans "Message" %} <span class="contact-required">*</span></label>
-                                <textarea name="message" class="form-input" rows="5" placeholder="..." required></textarea>
-                            </div>
-
-                            <div class="col-12">
-                                <button type="submit" class="btn-send">
-                                    <i class="bi bi-send-fill me-2"></i>{% trans "Envoyer le message" %}
-                                    <i class="bi bi-arrow-right ms-2 btn-send-arrow"></i>
-                                </button>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-
+        <div class="contact-socials">
+            {% if gs.lien_github %}<a href="{{ gs.lien_github }}" target="_blank" rel="noopener">GitHub ↗</a>{% endif %}
+            {% if gs.lien_linkedin %}<a href="{{ gs.lien_linkedin }}" target="_blank" rel="noopener">LinkedIn ↗</a>{% endif %}
+            {% if gs.lien_whatsapp %}<a href="https://wa.me/{{ gs.lien_whatsapp }}" target="_blank" rel="noopener">WhatsApp ↗</a>{% endif %}
+            {% if gs.lien_facebook %}<a href="{{ gs.lien_facebook }}" target="_blank" rel="noopener">Facebook ↗</a>{% endif %}
+            {% if gs.lien_instagram %}<a href="{{ gs.lien_instagram }}" target="_blank" rel="noopener">Instagram ↗</a>{% endif %}
         </div>
     </div>
 </section>
