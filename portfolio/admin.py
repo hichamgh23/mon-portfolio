@@ -1,17 +1,19 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, Stack
+
+
+@admin.register(Stack)
+class StackAdmin(admin.ModelAdmin):
+    list_display = ('nom',)
+    search_fields = ('nom',)
 
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('titre', 'categorie', 'date')
-    list_filter = ('categorie',)
+    list_display = ('titre',)
     search_fields = ('titre',)
-    fieldsets = (
-        ("Informations générales", {
-            "fields": ("titre", "categorie", "date", "image", "video", "lien_github", "lien_demo")
-        }),
-        ("Contenu", {
-            "fields": ("description", "defi_technique")
-        }),
-    )
+    filter_horizontal = ('stacks',)
+    fields = ('titre', 'video', 'stacks')
+
+    class Media:
+        js = ('js/admin_video_duration.js',)

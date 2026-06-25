@@ -51,12 +51,6 @@
     color: var(--text-faint);
 }
 
-.project-meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: .78rem;
-    color: var(--text-dim2);
-}
-
 .project-body h3 {
     font-size: 1.6rem;
     font-weight: 600;
@@ -65,32 +59,20 @@
     margin: .7rem 0;
 }
 
-.project-desc {
-    font-size: .92rem;
-    line-height: 1.6;
-    color: var(--text-dim);
-    margin-bottom: 1.2rem;
-}
-
-.project-links {
+.project-stacks {
     display: flex;
-    gap: .6rem;
+    gap: .5rem;
     flex-wrap: wrap;
 }
 
-.project-link {
+.project-stack-tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: .75rem;
     color: var(--text-dim);
     border: 1px solid var(--border);
     padding: .35rem .8rem;
     border-radius: 999px;
-    text-decoration: none;
-    transition: border-color .2s, color .2s;
 }
-
-.project-link:hover { border-color: var(--accent); color: var(--accent); }
-.project-link--muted { opacity: .55; cursor: default; }
 
 .empty-state {
     text-align: center;

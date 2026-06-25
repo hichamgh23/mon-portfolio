@@ -15,28 +15,19 @@
                     <video controls preload="metadata">
                         <source src="{{ projet.video.url }}">
                     </video>
-                    {% elif projet.image %}
-                    <img src="{{ projet.image.url }}" alt="{{ projet.titre }}">
                     {% else %}
-                    <span>[ {% trans "capture projet" %} ]</span>
+                    <span>[ {% trans "vidéo démo" %} ]</span>
                     {% endif %}
                 </div>
                 <div class="project-body">
-                    <div class="project-meta">{{ projet.get_categorie_display }} · {{ projet.date|date:"Y" }}</div>
                     <h3>{{ projet.titre }}</h3>
-                    <p class="project-desc">{{ projet.defi_technique|truncatechars:140 }}</p>
-                    <div class="project-links">
-                        {% if projet.lien_demo %}
-                        <a href="{{ projet.lien_demo }}" target="_blank" rel="noopener" class="project-link">{% trans "Voir en ligne" %} ↗</a>
-                        {% else %}
-                        <span class="project-link project-link--muted">{% trans "Non déployé" %}</span>
-                        {% endif %}
-                        {% if projet.lien_github %}
-                        <a href="{{ projet.lien_github }}" target="_blank" rel="noopener" class="project-link">{% trans "Code source" %} ↗</a>
-                        {% else %}
-                        <span class="project-link project-link--muted">{% trans "Privé" %}</span>
-                        {% endif %}
+                    {% if projet.stacks.all %}
+                    <div class="project-stacks">
+                        {% for stack in projet.stacks.all %}
+                        <span class="project-stack-tag">{{ stack.nom }}</span>
+                        {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

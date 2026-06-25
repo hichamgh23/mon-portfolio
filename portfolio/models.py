@@ -1,54 +1,42 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+
+
+class Stack(models.Model):
+    nom = models.CharField(
+        max_length=50,
+        unique=True,
+        verbose_name="Stack technique"
+    )
+
+    class Meta:
+        verbose_name = "Stack technique"
+        verbose_name_plural = "Stacks techniques"
+        ordering = ['nom']
+
+    def __str__(self):
+        return self.nom
 
 
 class Project(models.Model):
-    CATEGORIE_CHOICES = [
-        ('django', 'Django'),
-        ('react_native', 'React Native'),
-    ]
-
     titre = models.CharField(
         max_length=200,
         verbose_name="Titre"
     )
-    categorie = models.CharField(
-        max_length=20,
-        choices=CATEGORIE_CHOICES,
-        verbose_name="Catégorie"
-    )
-    description = RichTextField(
-        verbose_name="Description"
-    )
-    defi_technique = models.TextField(
-        verbose_name="Défi technique"
-    )
-    image = models.ImageField(
-        upload_to='projets/',
-        verbose_name="Image du projet"
-    )
     video = models.FileField(
         upload_to='projets/videos/',
-        blank=True,
-        null=True,
-        verbose_name="Vidéo de démonstration"
+        verbose_name="Vidéo de démonstration (60s max)"
     )
-    lien_github = models.URLField(
+    stacks = models.ManyToManyField(
+        Stack,
         blank=True,
-        verbose_name="Lien GitHub"
-    )
-    lien_demo = models.URLField(
-        blank=True,
-        verbose_name="Lien démo (laisser vide si non déployé)"
-    )
-    date = models.DateField(
-        verbose_name="Date de réalisation"
+        related_name='projets',
+        verbose_name="Stack technique"
     )
 
     class Meta:
         verbose_name = "Projet"
         verbose_name_plural = "Projets"
-        ordering = ['-date']
+        ordering = ['-id']
 
     def __str__(self):
         return self.titre
