@@ -5,7 +5,7 @@ from .models import ContactMessage, GroupeCompetence, ModuleAcademique, AutoForm
 
 
 def home(request):
-    projets = Project.objects.none()  # section masquée en attendant la curation depuis l'admin
+    projets = Project.objects.prefetch_related('stacks').all()
     groupes = GroupeCompetence.objects.prefetch_related('competences').all()
     modules = ModuleAcademique.objects.all()
     auto_formations = AutoFormation.objects.all()
